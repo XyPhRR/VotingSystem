@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const UserProfile = () => {
-  return (
-    <div style={{textAlign: 'center', marginTop: 70}}>
-        UserProfile
-    </div>
-  )
-}
+	return (
+		<div
+			style={{
+				textAlign: "center",
+				marginTop: 70,
+			}}
+		>
+			UserProfile
+		</div>
+	);
+};
 
-export default UserProfile
+export default UserProfile;
