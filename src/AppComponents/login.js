@@ -6,30 +6,30 @@ import {
 	MenuItem,
 	Select,
 	TextField,
-} from "@mui/material";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import reducer from "../Reducers/AuthReducer";
+} from '@mui/material';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import reducer from '../Reducers/AuthReducer';
 
 const LOG_IN = () => {
 	const USER = [
 		{
 			id: 1,
-			user: "ADMIN",
+			user: 'ADMIN',
 		},
 		{
 			id: 2,
-			user: "STUDENT",
+			user: 'STUDENT',
 		},
 	];
-	const [user, setUser] = useState("");
+	const [user, setUser] = useState('');
 	const navigate = useNavigate();
 	console.log(user);
 	return (
 		<div
-			className="ui container"
+			className='ui container'
 			style={{
-				textAlign: "right",
+				textAlign: 'right',
 				marginTop: 200,
 				marginRight: 100,
 			}}
@@ -38,17 +38,17 @@ const LOG_IN = () => {
 				sx={{
 					border: 1,
 					borderRadius: 10,
-					borderColor: "#fa8a80",
+					borderColor: '#fa8a80',
 					width: 275,
 					height: 440,
-					position: "absolute",
+					position: 'absolute',
 					right: 100,
 				}}
 			>
 				<div
 					style={{
 						marginRight: 60,
-						color: "#d50000",
+						color: '#d50000',
 					}}
 				>
 					<h1>LOG IN</h1>
@@ -62,12 +62,12 @@ const LOG_IN = () => {
 				>
 					<FormControl>
 						<InputLabel>
-							{" "}
+							{' '}
 							SELECT USER
 						</InputLabel>
 						<Select
 							required
-							type="text"
+							type='text'
 							onChange={(e) =>
 								setUser(e.target.value)
 							}
@@ -93,31 +93,31 @@ const LOG_IN = () => {
 							marginTop: 10,
 						}}
 						required
-						type="text"
-						label="Enter email"
+						type='text'
+						label='Enter email'
 					/>
 					<TextField
 						style={{
 							marginTop: 10,
 						}}
 						required
-						type="text"
-						label="Enter RollNo"
+						type='text'
+						label='Enter RollNo'
 					/>
 					<TextField
 						style={{
 							marginTop: 10,
 						}}
 						required
-						type="password"
-						label="Enter password"
+						type='password'
+						label='Enter password'
 					/>
 					<div>
 						<Button
-							size="large"
-							type="submit"
-							color="error"
-							variant="contained"
+							size='large'
+							type='submit'
+							color='error'
+							variant='contained'
 							style={{
 								marginTop: 10,
 								width: 225,

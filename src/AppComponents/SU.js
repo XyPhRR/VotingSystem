@@ -4,21 +4,21 @@ import {
 	Container,
 	Stack,
 	Typography,
-} from "@mui/material";
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import BackButton from "../muiConstComp/BackButton";
-import Divider1 from "../muiConstComp/Divider1";
-import "./styles.css";
+} from '@mui/material';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import BackButton from '../muiConstComp/BackButton';
+import Divider1 from '../muiConstComp/Divider1';
+import './styles.css';
 
-let FolderIcon1 = require("../../src/folder.jpg");
+let FolderIcon1 = require('../../src/folder.jpg');
 
 const StudentsUnion = () => {
 	const navigate = useNavigate();
 	return (
 		<div
 			style={{
-				textAlign: "left",
+				textAlign: 'left',
 				marginTop: 70,
 				marginLeft: 250,
 			}}
@@ -36,19 +36,19 @@ const StudentsUnion = () => {
 			<Divider1 />
 
 			<Stack
-				direction="row"
+				direction='row'
 				spacing={2}
 				style={{
-					textAlign: "left",
-					marginTop: 100,
+					textAlign: 'left',
+					marginTop: 20,
 				}}
 			>
 				<Button
-					variant="filled"
-					size="large"
+					variant='filled'
+					size='large'
 					onClick={() =>
 						navigate(
-							"/student-union/leader",
+							'/student-union/leader',
 						)
 					}
 				>
@@ -58,40 +58,41 @@ const StudentsUnion = () => {
 							width: 300,
 							borderRadius: 3,
 							height: 130,
-							borderColor: "#bdbdbd",
+							borderColor: '#bdbdbd',
 						}}
 					>
 						<img
 							style={{
 								marginTop: 10,
 							}}
-							align="left"
+							align='left'
 							src={FolderIcon1}
-							alt="folder"
-							className="folderIcon1"
+							alt='folder'
+							className='folderIcon1'
 							width={70}
 							height={60}
 						/>
 						<p style={{ marginTop: 90 }}>
 							<Typography
 								fontSize={16}
-								variant="h1"
-								component="h1"
-								align="bottom"
-								textAlign="left"
+								variant='h1'
+								component='h1'
+								align='bottom'
+								textAlign='left'
+								fontWeight='bold'
 							>
-								{" "}
-								STUDENTS' UNION LEADERS{" "}
+								{' '}
+								STUDENTS' UNION LEADERS{' '}
 							</Typography>
 						</p>
 					</Container>
 				</Button>
 				<Button
-					variant="filled"
-					size="small"
+					variant='filled'
+					size='small'
 					onClick={() =>
 						navigate(
-							"/student-union/candidate",
+							'/student-union/candidate',
 						)
 					}
 				>
@@ -101,39 +102,40 @@ const StudentsUnion = () => {
 							width: 300,
 							borderRadius: 3,
 							height: 130,
-							borderColor: "#bdbdbd",
+							borderColor: '#bdbdbd',
 						}}
 					>
 						<img
 							style={{
 								marginTop: 10,
 							}}
-							align="left"
+							align='left'
 							src={FolderIcon1}
-							alt="folder"
-							className="folderIcon1"
+							alt='folder'
+							className='folderIcon1'
 							width={70}
 							height={60}
 						/>
 						<p style={{ marginTop: 90 }}>
 							<Typography
 								fontSize={16}
-								variant="h1"
-								component="h1"
-								textAlign="left"
+								variant='h1'
+								component='h1'
+								textAlign='left'
+								fontWeight='bold'
 							>
-								{" "}
-								STUDENTS' UNION CANDIDATE{" "}
+								{' '}
+								STUDENTS' UNION CANDIDATE{' '}
 							</Typography>
 						</p>
 					</Container>
 				</Button>
 				<Button
-					variant="filled"
-					size="small"
+					variant='filled'
+					size='small'
 					onClick={() =>
 						navigate(
-							"/student-union/voting",
+							'/student-union/voting',
 						)
 					}
 				>
@@ -143,29 +145,30 @@ const StudentsUnion = () => {
 							width: 300,
 							borderRadius: 3,
 							height: 130,
-							borderColor: "#bdbdbd",
+							borderColor: '#bdbdbd',
 						}}
 					>
 						<img
 							style={{
 								marginTop: 10,
 							}}
-							align="left"
+							align='left'
 							src={FolderIcon1}
-							alt="folder"
-							className="folderIcon1"
+							alt='folder'
+							className='folderIcon1'
 							width={70}
 							height={60}
 						/>
 						<p style={{ marginTop: 90 }}>
 							<Typography
 								fontSize={16}
-								variant="h1"
-								component="h1"
-								textAlign="left"
+								variant='h1'
+								component='h1'
+								textAlign='left'
+								fontWeight='bold'
 							>
-								{" "}
-								STUDENTS' UNION VOTING{" "}
+								{' '}
+								STUDENTS' UNION VOTING{' '}
 							</Typography>
 						</p>
 					</Container>

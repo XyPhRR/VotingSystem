@@ -1,17 +1,17 @@
-import { Typography } from "@mui/material";
-import React from "react";
-import BackButton from "../muiConstComp/BackButton";
-import Divider1 from "../muiConstComp/Divider1";
+import { Typography } from '@mui/material';
+import React from 'react';
+import BackButton from '../muiConstComp/BackButton';
+import Divider1 from '../muiConstComp/Divider1';
 
 const About = () => {
 	return (
 		<div
 			style={{
 				marginTop: 70,
-				marginLeft: 250
+				marginLeft: 250,
 			}}
 		>
-			<BackButton/>
+			<BackButton />
 			<Typography
 				fontSize={20}
 				style={{

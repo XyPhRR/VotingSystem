@@ -1,7 +1,7 @@
-import { Typography } from "@mui/material";
-import React from "react";
-import BackButton from "../muiConstComp/BackButton";
-import Divider1 from "../muiConstComp/Divider1";
+import { Typography } from '@mui/material';
+import React from 'react';
+import BackButton from '../muiConstComp/BackButton';
+import Divider1 from '../muiConstComp/Divider1';
 
 const Notice = () => {
 	return (
@@ -21,7 +21,7 @@ const Notice = () => {
 			>
 				NOTICE
 			</Typography>
-			<Divider1/>
+			<Divider1 />
 		</div>
 	);
 };

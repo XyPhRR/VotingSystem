@@ -1,7 +1,7 @@
-import React from "react";
-import Divider1 from "../muiConstComp/Divider1";
-import BackButton from "../muiConstComp/BackButton";
-import { Typography } from "@mui/material";
+import React from 'react';
+import Divider1 from '../muiConstComp/Divider1';
+import BackButton from '../muiConstComp/BackButton';
+import { Typography } from '@mui/material';
 
 const SuLeaders = () => {
 	return (

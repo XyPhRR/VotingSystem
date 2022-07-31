@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const UserProfile = () => {
 	return (
 		<div
 			style={{
-				textAlign: "center",
+				textAlign: 'center',
 				marginTop: 70,
 			}}
 		>

@@ -17,22 +17,22 @@ import {
 	Dialog,
 	DialogTitle,
 	DialogActions,
-} from "@mui/material";
+} from '@mui/material';
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
 	Link,
 	useNavigate,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AutoAwesomeMosaicIcon from "@mui/icons-material/AutoAwesomeMosaic";
-import { Box } from "@mui/system";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import GradeIcon from "@mui/icons-material/Grade";
-import "./styles.css";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
+import { Box } from '@mui/system';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import GradeIcon from '@mui/icons-material/Grade';
+import './styles.css';
 
-let logo1 = require("../../src/logo1.jpg");
+let logo1 = require('../../src/logo1.jpg');
 
 const drawerWidth = 240;
 
@@ -48,22 +48,22 @@ const NavBar = () => {
 				onClose={() => setOpen(false)}
 			>
 				<DialogTitle>
-					{" "}
+					{' '}
 					Do You want To Log Out ?
 				</DialogTitle>
 				<DialogActions>
 					<Button
 						onClick={() => setOpen(false)}
 					>
-						{" "}
+						{' '}
 						NO
 					</Button>
 					<Button
 						onClick={() => setOpen(false)}
 						component={Link}
-						to="/"
+						to='/'
 					>
-						{" "}
+						{' '}
 						Yes
 					</Button>
 				</DialogActions>
@@ -75,8 +75,8 @@ const NavBar = () => {
 		return (
 			<>
 				<AppBar
-					position="fixed"
-					color="error"
+					position='fixed'
+					color='error'
 					sx={{
 						zIndex: (theme) =>
 							theme.zIndex.drawer + 1,
@@ -85,14 +85,14 @@ const NavBar = () => {
 					<Toolbar>
 						<img
 							src={logo1}
-							alt="logo1"
-							className="logo1"
+							alt='logo1'
+							className='logo1'
 							height={40}
 							width={50}
 						/>
 						<Typography
-							variant="h6"
-							component="div"
+							variant='h6'
+							component='div'
 						>
 							Govt. Zirtiri Residential
 							Science College
@@ -100,7 +100,7 @@ const NavBar = () => {
 						<div style={{ flexGrow: 1 }} />
 						<div>
 							<IconButton
-								color="inherit"
+								color='inherit'
 								onClick={(e) =>
 									setOpenMenu(
 										e.currentTarget,
@@ -111,7 +111,7 @@ const NavBar = () => {
 							</IconButton>
 						</div>
 						<Menu
-							id="account-menu"
+							id='account-menu'
 							anchorEl={openMenu}
 							open={Boolean(openMenu)}
 							onClose={() =>
@@ -123,7 +123,7 @@ const NavBar = () => {
 									setOpenMenu(false)
 								}
 								component={Link}
-								to="/profile"
+								to='/profile'
 							>
 								Profile
 							</MenuItem>
@@ -146,23 +146,23 @@ const NavBar = () => {
 		return (
 			<>
 				<Drawer
-					variant="permanent"
+					variant='permanent'
 					style={drawers}
 					sx={{
 						width: drawerWidth,
 						flexShrink: 0,
 						[`& .MuiDrawer-paper`]: {
 							width: drawerWidth,
-							boxSizing: "border-box",
+							boxSizing: 'border-box',
 						},
 					}}
 				>
 					<Toolbar />
 					<Box
 						sx={{
-							overflow: "auto",
-							background: "#d50000",
-							color: "#fafafa",
+							overflow: 'auto',
+							background: '#d50000',
+							color: '#fafafa',
 						}}
 					>
 						<List>
@@ -174,7 +174,7 @@ const NavBar = () => {
 									<ListItemText
 										onClick={() =>
 											navigate(
-												"/dashbord",
+												'/dashbord',
 											)
 										}
 									>
@@ -184,8 +184,8 @@ const NavBar = () => {
 												flexGrow: 1,
 											}}
 										>
-											{" "}
-											DASHBORD{" "}
+											{' '}
+											DASHBORD{' '}
 										</Typography>
 									</ListItemText>
 								</ListItemButton>
@@ -199,7 +199,7 @@ const NavBar = () => {
 									<ListItemText
 										onClick={() =>
 											navigate(
-												"/student-union",
+												'/student-union',
 											)
 										}
 									>
@@ -209,8 +209,8 @@ const NavBar = () => {
 												flexGrow: 1,
 											}}
 										>
-											{" "}
-											STUDENTS' UNION{" "}
+											{' '}
+											STUDENTS' UNION{' '}
 										</Typography>
 									</ListItemText>
 								</ListItemButton>
@@ -224,15 +224,15 @@ const NavBar = () => {
 									<ListItemText
 										onClick={() =>
 											navigate(
-												"/notice",
+												'/notice',
 											)
 										}
 									>
 										<Typography
 											fontSize={14}
 										>
-											{" "}
-											Notice{" "}
+											{' '}
+											Notice{' '}
 										</Typography>
 									</ListItemText>
 								</ListItemButton>
@@ -243,25 +243,25 @@ const NavBar = () => {
 					<Box
 						style={{ flexGrow: 1 }}
 						sx={{
-							background: "#d50000",
-							color: "#fafafa",
+							background: '#d50000',
+							color: '#fafafa',
 						}}
 					/>
 					<Box
 						sx={{
 							bottom: 1,
-							background: "#d50000",
-							color: "#fafafa",
+							background: '#d50000',
+							color: '#fafafa',
 						}}
 					>
 						<Button
 							style={{
 								marginLeft: 90,
 								marginBottom: 10,
-								color: "inherit",
+								color: 'inherit',
 							}}
 							onClick={() =>
-								navigate("/about")
+								navigate('/about')
 							}
 						>
 							About
@@ -273,12 +273,12 @@ const NavBar = () => {
 	};
 
 	const drawers = {
-		backgroundColor: "red",
+		backgroundColor: 'red',
 	};
 
 	return (
 		<div>
-			<Box sx={{ display: "flex" }}>
+			<Box sx={{ display: 'flex' }}>
 				<CssBaseline />
 				{renderAppBar()}
 				{renderSideBar()}
