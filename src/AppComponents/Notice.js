@@ -1,29 +1,27 @@
-import { Button, Divider } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Typography } from "@mui/material";
 import React from "react";
+import BackButton from "../muiConstComp/BackButton";
+import Divider1 from "../muiConstComp/Divider1";
 
 const Notice = () => {
 	return (
 		<div
 			style={{
 				marginLeft: 250,
-				marginTop: 80,
+				marginTop: 70,
 			}}
 		>
-			<Button
-				variant="filled"
-				size="small"
-				style={{ marginBottom: 5 }}
+			<BackButton />
+			<Typography
+				fontSize={20}
+				style={{
+					marginLeft: 60,
+					marginTop: -37,
+				}}
 			>
-				<ArrowBackIcon />
-			</Button>
-			NOTICE
-			<Divider
-				variant="middle"
-				component="article"
-				style={{ width: 1240, marginTop: 5 }}
-				sx={{ borderColor: "red" }}
-			/>
+				NOTICE
+			</Typography>
+			<Divider1/>
 		</div>
 	);
 };
