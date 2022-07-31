@@ -26,6 +26,7 @@ const StudentsUnion = () => {
 			<BackButton />
 			<Typography
 				fontSize={20}
+				fontWeight='bold'
 				style={{
 					marginLeft: 60,
 					marginTop: -37,
