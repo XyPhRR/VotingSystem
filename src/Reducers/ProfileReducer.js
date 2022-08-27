@@ -1,4 +1,4 @@
-const reducer = (state = {}, action) => {
+const ProfileReducer = (state = {}, action) => {
 	switch (action.type) {
 		case 'FETCH_PROFILE':
 			return action.payload;
@@ -8,4 +8,4 @@ const reducer = (state = {}, action) => {
 			return state;
 	}
 };
-export default reducer;
+export default ProfileReducer;

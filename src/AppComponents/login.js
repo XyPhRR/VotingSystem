@@ -57,7 +57,7 @@ const LOG_IN = () => {
 					onSubmit={(e) => {
 						e.preventDefault();
 
-						// navigate('/dashbord')
+						navigate('/dashbord')
 					}}
 				>
 					<FormControl>

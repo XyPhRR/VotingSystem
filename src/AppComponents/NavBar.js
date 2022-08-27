@@ -46,6 +46,7 @@ const NavBar = () => {
 			<Dialog
 				open={open}
 				onClose={() => setOpen(false)}
+				onClick={() => setOpenMenu(false)}
 			>
 				<DialogTitle>
 					{' '}
@@ -131,6 +132,9 @@ const NavBar = () => {
 								onClick={() =>
 									setOpen(true)
 								}
+								onClose={() => 
+									setOpen(false)
+								}
 							>
 								Log Out
 							</MenuItem>
@@ -161,7 +165,7 @@ const NavBar = () => {
 					<Box
 						sx={{
 							overflow: 'auto',
-							background: '#d50000',
+							background: '#d32f2f',
 							color: '#fafafa',
 						}}
 					>
@@ -243,14 +247,14 @@ const NavBar = () => {
 					<Box
 						style={{ flexGrow: 1 }}
 						sx={{
-							background: '#d50000',
+							background: '#d32f2f',
 							color: '#fafafa',
 						}}
 					/>
 					<Box
 						sx={{
 							bottom: 1,
-							background: '#d50000',
+							background: '#d32f2f',
 							color: '#fafafa',
 						}}
 					>
@@ -259,6 +263,7 @@ const NavBar = () => {
 								marginLeft: 90,
 								marginBottom: 10,
 								color: 'inherit',
+								flexGrow:1
 							}}
 							onClick={() =>
 								navigate('/about')
