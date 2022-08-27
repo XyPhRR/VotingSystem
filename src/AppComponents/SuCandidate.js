@@ -1,4 +1,7 @@
+import { Typography } from '@mui/material';
 import React, {useEffect, useState} from 'react';
+import Divider1 from '../muiConstComp/Divider1';
+import BackButton from '../muiConstComp/BackButton';
 import api from '../api/api';
 
 const SuCandidate = () => {
@@ -18,11 +21,21 @@ const SuCandidate = () => {
 	return (
 		<div
 			style={{
-				marginTop: 200,
-				marginLeft: 400,
+				marginTop: 70,
+				marginLeft: 250,
 			}}
 		>
-			SuCandidate
+			<BackButton />
+			<Typography
+				fontSize={20}
+				style={{
+					marginLeft: 60,
+					marginTop: -37,
+				}}
+			>
+				SU LEADERS
+			</Typography>
+			<Divider1 />
 		</div>
 	);
 };

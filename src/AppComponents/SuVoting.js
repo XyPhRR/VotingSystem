@@ -1,14 +1,30 @@
 import React from 'react';
+import Divider1 from '../muiConstComp/Divider1';
+import BackButton from '../muiConstComp/BackButton';
+import { Box, Typography } from '@mui/material';
 
 const SuVoting = () => {
 	return (
 		<div
 			style={{
-				marginTop: 200,
-				marginLeft: 300,
+				marginTop: 70,
+				marginLeft: 250,
 			}}
 		>
-			SuVoting
+			<BackButton />
+			<Typography
+				fontSize={20}
+				style={{
+					marginLeft: 60,
+					marginTop: -37,
+				}}
+			>
+				SU LEADERS
+			</Typography>
+			<Divider1 />
+			<Box>
+				hjh
+			</Box>
 		</div>
 	);
 };
