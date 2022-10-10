@@ -30,7 +30,7 @@ const LOG_IN = () => {
 			className='ui container'
 			style={{
 				textAlign: 'right',
-				marginTop: 200,
+				marginTop: 150,
 				marginRight: 100,
 			}}
 		>

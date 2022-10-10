@@ -1,0 +1,28 @@
+const SEM = [
+    {
+        id: 1,
+        district: 'I'
+    },
+    {
+        id: 2,
+        district: 'II'
+    },
+    {
+        id: 3,
+        district: 'III'
+    },
+    {
+        id: 4,
+        district: 'IV'
+    },
+    {
+        id: 5,
+        district: 'V'
+    },
+    {
+        id: 6,
+        district: 'VI'
+    },
+]
+
+export default SEM
