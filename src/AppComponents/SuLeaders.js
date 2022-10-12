@@ -76,16 +76,32 @@ const SuLeaders = () => {
    const [core, setCore] = useState('');
    const [values, setValues] = useState({});
 
-   const onDelete = async (deleteId) => {
-      console.log(onDelete)
-      try {
-          setLists(lists.filter((i) => i.id !== deleteId))
-          setAlertMessage("Student details deleted")
-          setOpenAlert(true)
-      } catch (error) {
-          setAlertMessage("Student details not deleted")
-          setOpenAlert(true)
-      }
+  const onDelete = async (e) => {
+   try {
+      await (`api/student`)
+   } catch (error) {
+      
+   }
+  }
+
+  const Update = async (e) => {
+   try {
+      await (`${values.id}`,values)
+      setLists(lists.map((i) => {
+         if (i.id == values.id) {
+            return {
+                ...values,
+
+            }
+        }
+        else
+            return i
+      }))
+   } catch (error) {
+      setAlertMessage("Update Error")
+      setOpenAlert(true)
+   }
+    
   }
 
    const Edit = () => {
@@ -103,7 +119,7 @@ const SuLeaders = () => {
                onClose={() => setOpen1(false)}
             >
                <DialogTitle style={{textAlign: 'center', fontWeight: 'bold' }}>Edit</DialogTitle>
-               <form>
+               <form onSubmit={Update}>
                   <DialogContent>
                      <TextField
                         style={{
@@ -118,6 +134,11 @@ const SuLeaders = () => {
                         size='small'
                         type='text'
                         helperText='Post'
+                        value={values.id}
+                        onChange={e => setValues({
+                           ...values,
+                           Position: e.target.value
+                        })}
                      />
                      <br></br>
                      <TextField

@@ -23,6 +23,9 @@ const About = () => {
 				ABOUT
 			</Typography>
 			<Divider1 />
+			<div style={{ marginTop: 20, marginLeft: 20, fontWeight: 'bold' }}>
+				For more information contact @hriata_83
+			</div>
 		</div>
 	);
 };
