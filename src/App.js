@@ -13,18 +13,8 @@ import SuVoting from './AppComponents/SuVoting';
 import UserProfile from './AppComponents/UserProfile';
 
 function App() {
-	const [isLogin, setIsLogin] = useState(false);
 	return (
 		<div className='App'>
-			{/* <LoggedIn /> */}
-			{/* {isLogin? 
-        <>
-         <NavBar /> 
-          setIsLogin(true)
-        </>
-      :
-        setIsLogin(false  )
-      } */}
 			<NavBar />
 			<Routes>
 				<Route

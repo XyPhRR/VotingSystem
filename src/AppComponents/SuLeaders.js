@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Divider1 from '../muiConstComp/Divider1';
 import BackButton from '../muiConstComp/BackButton';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AlertBar from '../muiConstComp/AlertBar';
+import api from '../api/api';
 import {
    Button,
    Dialog,
@@ -14,7 +15,7 @@ import {
    TextField,
    Typography,
 } from '@mui/material';
-import { useState } from 'react';
+
 
 const SuLeaders = () => {
    const list = [
@@ -67,14 +68,25 @@ const SuLeaders = () => {
          Class: 'Principal',
       },
    ];
-   const [lists, setLists] = useState('');
+   const [lists, setLists] = useState([]);
    const [open, setOpen] = useState(false);
    const [open1, setOpen1] = useState(false);
    const [openAlert, setOpenAlert] = useState(false)
    const [alertMessage, setAlertMessage] = useState("")
-   const [sem, setSem] = useState('');
-   const [core, setCore] = useState('');
    const [values, setValues] = useState({});
+
+   useEffect(() => {
+      fetchLists()
+   }, [])
+
+   const fetchLists = async () => {
+      try {
+         const response = await api.get('/api/leader')
+         setLists(response.data.data)
+      } catch (error) {
+         setLists([])
+      }
+   }
 
   const onDelete = async (e) => {
    try {

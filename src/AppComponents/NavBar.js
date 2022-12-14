@@ -170,31 +170,7 @@ const NavBar = () => {
 						}}
 					>
 						<List>
-							<ListItem>
-								<ListItemButton>
-									<ListItemIcon>
-										<GradeIcon />
-									</ListItemIcon>
-									<ListItemText
-										onClick={() =>
-											navigate(
-												'/dashbord',
-											)
-										}
-									>
-										<Typography
-											fontSize={12}
-											style={{
-												flexGrow: 1,
-											}}
-										>
-											{' '}
-											DASHBORD{' '}
-										</Typography>
-									</ListItemText>
-								</ListItemButton>
-							</ListItem>
-							<Divider />
+							
 							<ListItem>
 								<ListItemButton>
 									<ListItemIcon>

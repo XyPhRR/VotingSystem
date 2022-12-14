@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-	baseURL: 'http://localhost/api/admin',
+	baseURL: 'http://localhost/voting',
 });
 
 export default api;

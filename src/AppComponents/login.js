@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import reducer from '../Reducers/AuthReducer';
 
 const LOG_IN = () => {
 	const USER = [
@@ -34,6 +33,9 @@ const LOG_IN = () => {
 				marginRight: 100,
 			}}
 		>
+			<div style={{ marginLeft: 20,  }}>
+
+			</div>
 			<Container
 				sx={{
 					border: 1,

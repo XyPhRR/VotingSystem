@@ -77,6 +77,18 @@ const SuCandidate = () => {
    const [open4, setOpen4] = useState(false);
    const [values, setValues] = useState({});
 
+   // useEffect(() => {
+   //    fetchLists()
+   // }, [])
+
+   // const fetchList = async () => {
+   //    try {
+   //       const response = await api.get('/api/')
+   //    } catch (error) {
+         
+   //    }
+   // }
+
    const AddVp = () => {
       return (
          <>
