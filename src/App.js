@@ -23,11 +23,6 @@ function App() {
 					element={<LOG_IN />}
 				/>
 				<Route
-					path='/dashbord'
-					exact
-					element={<Dashbord />}
-				/>
-				<Route
 					path='/student-union'
 					exact
 					element={<StudentsUnion />}

@@ -9,85 +9,50 @@ import {
    TextField,
    Typography,
 } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Divider1 from '../muiConstComp/Divider1';
 import BackButton from '../muiConstComp/BackButton';
 import AddIcon from '@mui/icons-material/Add';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
-import api from '../api/api';
 
 const SuCandidate = () => {
-   const VicePresident = [
+   const  [lists, setLists] = useState([
       {
          id: 1,
-         Name: 'VP_Candidate1',
-         Class: 'C1_Class',
+         name: 'VP_Candidate1',
+         classs: 'C1_Class',
       },
       {
          id: 2,
-         Name: 'VP_Candidate2',
-         Class: 'C2_Class',
+         name: 'VP_Candidate2',
+         classs: 'C2_Class',
       },
       {
          id: 3,
-         Name: 'VP_Candidate3',
-         Class: 'C3_Class',
+         name: 'VP_Candidate3',
+         classs: 'C3_Class',
       },
-   ];
-   const GS = [
-      {
-         id: 1,
-         Name: 'GS_Candidate1',
-         Class: 'C1_Class',
-      },
-      {
-         id: 2,
-         Name: 'GS_Candidate2',
-         Class: 'C2_Class',
-      },
-      {
-         id: 3,
-         Name: 'GS_Candidate3',
-         Class: 'C3_Class',
-      },
-   ];
-   const IS = [
-      {
-         id: 1,
-         Name: 'IS_Candidate1',
-         Class: 'C1_Class',
-      },
-      {
-         id: 2,
-         Name: 'IS_Candidate2',
-         Class: 'C2_Class',
-      },
-      {
-         id: 3,
-         Name: 'IS_Candidate3',
-         Class: 'C3_Class',
-      },
-   ];
-
-   const [lists, setLists] = useState('');
-   const [open1, setOpen1] = useState(false);
-   const [open2, setOpen2] = useState(false);
-   const [open3, setOpen3] = useState(false);
-   const [open4, setOpen4] = useState(false);
+   ]);
+   const [open, setOpen] = useState(false)
+   const [open1, setOpen1] = useState(false)
    const [values, setValues] = useState({});
-
-   // useEffect(() => {
-   //    fetchLists()
-   // }, [])
-
-   // const fetchList = async () => {
-   //    try {
-   //       const response = await api.get('/api/')
-   //    } catch (error) {
-         
-   //    }
-   // }
+   const [id, setId] = useState("")
+   const [name, setName] = useState("")
+   const [classs, setClasss] = useState("")
+   
+   const Submit = (e) => {
+      e.preventDefault()
+      setLists([...lists, {
+          id: id,
+          name: name,
+          classs: classs
+      }]);
+      setId("")
+      setName("")
+      setClasss("")
+      setOpen(false)
+  }
 
    const AddVp = () => {
       return (
@@ -100,13 +65,13 @@ const SuCandidate = () => {
                   marginLeft: 500,
                   width: 500,
                }}
-               open={open2}
-               onClose={() => setOpen2(false)}
+               open={open}
+               onClose={() => setOpen(false)}
             >
                <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>
-                  Add
+                  Add VP
                </DialogTitle>
-               <form>
+               <form onSubmit={Submit}>
                   <DialogContent>
                      <TextField
                         required
@@ -120,7 +85,10 @@ const SuCandidate = () => {
                         size='small'
                         label='NAME'
                         type='text'
-                        helperText='Enter Name'
+                        helperText='Enter name'
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+
                      />
                      <br></br>
                      <TextField
@@ -133,8 +101,10 @@ const SuCandidate = () => {
                            width: 350,
                         }}
                         size='small'
-                        label='Class'
+                        label='classs'
                         type='text'
+                        value={classs}
+                        onChange={e => setClasss(e.target.value)}
                      />
                   </DialogContent>
                   <DialogActions>
@@ -145,7 +115,7 @@ const SuCandidate = () => {
                      <Button
                         onClick={() => {
                            setValues({});
-                           setOpen2(false);
+                           setOpen(false);
                         }}
                         variant='outlined'
                      >
@@ -157,179 +127,36 @@ const SuCandidate = () => {
          </>
       );
    }
-
-   const AddGS = () => {
-      return (
-         <>
-            <Dialog
-               sx={{
-                  position: 'absolute',
-               }}
-               style={{
-                  marginLeft: 500,
-                  width: 500,
-               }}
-               open={open3}
-               onClose={() => setOpen3(false)}
-            >
-               <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>
-                  Add
-               </DialogTitle>
-               <form>
-                  <DialogContent>
-                     <TextField
-                        required
-                        style={{
-                           width: 350,
-                           marginTop: 10,
-                           marginLeft: 10,
-                           paddingTop: 5,
-                           marginRight: 10,
-                        }}
-                        size='small'
-                        label='NAME'
-                        type='text'
-                        helperText='Enter Name'
-                     />
-                     <br></br>
-                     <TextField
-                        required
-                        style={{
-                           marginTop: 10,
-                           marginLeft: 10,
-                           paddingTop: 5,
-                           marginRight: 10,
-                           width: 350,
-                        }}
-                        size='small'
-                        label='Class'
-                        type='text'
-                     />
-                  </DialogContent>
-                  <DialogActions>
-                     <Button variant='contained' type='submit'>
-                        Add
-                     </Button>
-
-                     <Button
-                        onClick={() => {
-                           setValues({});
-                           setOpen3(false);
-                        }}
-                        variant='outlined'
-                     >
-                        CANCEL
-                     </Button>
-                  </DialogActions>
-               </form>
-            </Dialog>
-         </>
+   
+   const Update = (e) => {
+      e.preventDefault();
+      setLists(
+         lists.map((i) => {
+            if (i.id == values.id) {
+               return {
+                  ...values,
+               };
+            } else return i;
+         }),
       );
-   }
+      setValues({});
+      setOpen1(false);
+   };
 
-   const AddIS = () => {
+   const Edit = () => {
       return (
          <>
             <Dialog
-               sx={{
-                  position: 'absolute',
-               }}
-               style={{
-                  marginLeft: 500,
-                  width: 500,
-               }}
-               open={open4}
-               onClose={() => setOpen4(false)}
-            >
-               <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>
-                  Add
-               </DialogTitle>
-               <form>
-                  <DialogContent>
-                     <TextField
-                        required
-                        style={{
-                           width: 350,
-                           marginTop: 10,
-                           marginLeft: 10,
-                           paddingTop: 5,
-                           marginRight: 10,
-                        }}
-                        size='small'
-                        label='NAME'
-                        type='text'
-                        helperText='Enter Name'
-                     />
-                     <br></br>
-                     <TextField
-                        required
-                        style={{
-                           marginTop: 10,
-                           marginLeft: 10,
-                           paddingTop: 5,
-                           marginRight: 10,
-                           width: 350,
-                        }}
-                        size='small'
-                        label='Class'
-                        type='text'
-                     />
-                  </DialogContent>
-                  <DialogActions>
-                     <Button variant='contained' type='submit'>
-                        Add
-                     </Button>
-
-                     <Button
-                        onClick={() => {
-                           setValues({});
-                           setOpen4(false);
-                        }}
-                        variant='outlined'
-                     >
-                        CANCEL
-                     </Button>
-                  </DialogActions>
-               </form>
-            </Dialog>
-         </>
-      );
-   }
-
-   const Add = () => {
-      return (
-         <>
-            <Dialog
-               sx={{
-                  position: 'absolute',
-               }}
-               style={{
-                  marginLeft: 500,
-                  width: 500,
-               }}
+               sx={{ position: 'absolute' }}
+               style={{ marginLeft: 500, width: 500 }}
                open={open1}
                onClose={() => setOpen1(false)}
             >
                <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>
-                  Add
+                  Edit
                </DialogTitle>
-               <form>
+               <form onSubmit={Update}>
                   <DialogContent>
-                     <TextField
-                        style={{
-                           width: 350,
-                           marginTop: 10,
-                           marginLeft: 10,
-                           marginRight: 10,
-                           paddingTop: 5,
-                        }}
-                        required
-                        label='Post'
-                        size='small'
-                        type='text'
-                        helperText='Post'
-                     />
-                     <br></br>
                      <TextField
                         required
                         style={{
@@ -342,7 +169,14 @@ const SuCandidate = () => {
                         size='small'
                         label='NAME'
                         type='text'
-                        helperText='Enter Name'
+                        helperText='Enter name'
+                        value={values.name}
+                        onChange={(e) =>
+                           setValues({
+                              ...values,
+                              name: e.target.value,
+                           })
+                        }
                      />
                      <br></br>
                      <TextField
@@ -355,13 +189,20 @@ const SuCandidate = () => {
                            width: 350,
                         }}
                         size='small'
-                        label='Class'
+                        label='classs'
                         type='text'
+                        value={values.classs}
+                        onChange={(e) =>
+                           setValues({
+                              ...values,
+                              classs: e.target.value,
+                           })
+                        }
                      />
                   </DialogContent>
                   <DialogActions>
                      <Button variant='contained' type='submit'>
-                        Add
+                        Update
                      </Button>
 
                      <Button
@@ -379,19 +220,8 @@ const SuCandidate = () => {
          </>
       );
    };
-   // const [lists, setLists] = useState([])
-   // useEffect(() => {
-   // 	fetchList()
-   // }, [])
 
-   // const fetchList = async () => {
-   // 	try {
-   // 		const response = await api.get(`/api/candidate`)
-   // 		setLists(response.data.data)
-   // 	} catch (error) {
-   // 		setLists([])
-   // 	}
-   // }
+
    return (
       <div
          style={{
@@ -435,7 +265,7 @@ const SuCandidate = () => {
                      variant='contained'
                      startIcon={<AddIcon />}
                      style={{ marginLeft: 250 }}
-                     onClick={() => setOpen2(true)}
+                     onClick={() => setOpen(true)}
                   >
                      Add New
                   </Button>
@@ -455,19 +285,25 @@ const SuCandidate = () => {
                                  Class
                               </td>
                            </tr>
-                           {VicePresident.map((lists, id) => (
-                              <tr key={lists.id}>
-                                 <td style={{ padding: 10 }}>{id + 1}</td>
-                                 <td style={{ padding: 10 }}>{lists.Name}</td>
-                                 <td style={{ padding: 10 }}>
-                                    {' '}
-                                    {lists.Class}{' '}
-                                 </td>
+                           {lists.map((list, index) => (
+                              <tr key={list.id}>
+                                 <td style={{ padding: 10 }}>{index + 1}</td>
+                                 <td style={{ padding: 10 }}>{list.name}</td>
+                                 <td style={{ padding: 10 }}>{list.classs}</td>
                                  <td style={{padding: 10 }}>
-                                    <Button> <EditOutlinedIcon/> </Button>
+                                    <Button
+                                       onClick={() => {
+                                          setValues(lists)
+                                          setOpen1(true)
+                                       }}
+                                    > <EditOutlinedIcon/> 
+                                    </Button>
                                  </td>
                                  <td style={{padding: 10, marginRight: 30 }}>
-                                    <Button style={{ marginRight: 30 }}> <DeleteIcon/> </Button>
+                                    <Button style={{ marginRight: 30 }}
+                                       color='error'
+                                       onClick={() => setLists(lists.filter((i) => i.id !== list.id))}
+                                    > <DeleteIcon/> </Button>
                                  </td>
                               </tr>
                            ))}
@@ -475,141 +311,12 @@ const SuCandidate = () => {
                      </div>
                   </div>
                </div>
-            </Container>
+               </Container>
          </Stack>
-         <Stack style={{ marginTop: 20 }}>
-            <Container
-               sx={{
-                  border: 1,
-                  borderRadius: 3,
-                  borderColor: '#bdbdbd',
-                  width: 685,
-               }}
-               style={{
-                  marginLeft: 10,
-               }}
-            >
-               <div
-                  style={{ fontWeight: 'bold', marginTop: 10, marginLeft: 20 }}
-               >
-                  Candidate For Genreral Secretary
-                  <Button
-                     variant='contained'
-                     startIcon={<AddIcon />}
-                     style={{ marginLeft: 215 }}
-                     onClick={() => setOpen3(true)}
-                  >
-                     Add New
-                  </Button>
-               </div>
-               <div style={{ display: 'flex' }}>
-                  <div style={{ flexGrow: 1 }}>
-                     <div style={{ marginTop: 20, marginLeft: 20 }}>
-                        <table style={{ width: 700 }}>
-                           <tr>
-                              <td style={{ padding: 10, fontWeight: 'bold' }}>
-                                 Sl. NO
-                              </td>
-                              <td style={{ padding: 10, fontWeight: 'bold' }}>
-                                 Name
-                              </td>
-                              <td style={{ padding: 10, fontWeight: 'bold' }}>
-                                 Class
-                              </td>
-                           </tr>
-                           {GS.map((lists, id) => (
-                              <tr key={lists.id}>
-                                 <td style={{ padding: 10 }}>{id + 1}</td>
-                                 <td style={{ padding: 10 }}>{lists.Name}</td>
-                                 <td style={{ padding: 10 }}>
-                                    {' '}
-                                    {lists.Class}{' '}
-                                 </td>
-                                 <td style={{padding: 10 }}>
-                                    <Button> <EditOutlinedIcon/> </Button>
-                                 </td>
-                                 <td style={{padding: 10, marginRight: 30 }}>
-                                    <Button style={{ marginRight: 30 }}> <DeleteIcon/> </Button>
-                                 </td>
-                              </tr>
-                           ))}
-                        </table>
-                     </div>
-                  </div>
-               </div>
-            </Container>
-         </Stack>
-         <Stack style={{ marginTop: 20 }}>
-            <Container
-               sx={{
-                  border: 1,
-                  borderRadius: 3,
-                  borderColor: '#bdbdbd',
-                  width: 685,
-               }}
-               style={{
-                  marginLeft: 10,
-               }}
-            >
-               <div
-                  style={{ fontWeight: 'bold', marginTop: 10, marginLeft: 20 }}
-               >
-                  Candidate For Indoor Secretary
-                  <Button
-                     variant='contained'
-                     startIcon={<AddIcon />}
-                     style={{ marginLeft: 215 }}
-                     onClick={() => setOpen4(true)}
-                  >
-                     Add New
-                  </Button>
-               </div>
-               <div style={{ display: 'flex' }}>
-                  <div style={{ flexGrow: 1 }}>
-                     <div style={{ marginTop: 20, marginLeft: 20 }}>
-                        <table style={{ width: 700 }}>
-                           <tr>
-                              <td style={{ padding: 10, fontWeight: 'bold' }}>
-                                 Sl. NO
-                              </td>
-                              <td style={{ padding: 10, fontWeight: 'bold' }}>
-                                 Name
-                              </td>
-                              <td style={{ padding: 10, fontWeight: 'bold' }}>
-                                 Class
-                              </td>
-                           </tr>
-                           {IS.map((lists, id) => (
-                              <tr key={lists.id}>
-                                 <td style={{ padding: 10 }}>{id + 1}</td>
-                                 <td style={{ padding: 10 }}>{lists.Name}</td>
-                                 <td style={{ padding: 10 }}>{lists.Class}</td>
-                                 <td style={{padding: 10 }}>
-                                    <Button> <EditOutlinedIcon/> </Button>
-                                 </td>
-                                 <td style={{padding: 10, marginRight: 30 }}>
-                                    <Button style={{ marginRight: 30 }}> <DeleteIcon/> </Button>
-                                 </td>
-                              </tr>
-                           ))}
-                        </table>
-                     </div>
-                  </div>
-               </div>
-            </Container>
-            <Button
-               style={{ width: 150, marginLeft: 500, marginTop: 20 }}
-               startIcon={<AddIcon />}
-               variant='contained'
-               onClick={() => setOpen1(true)}
-            >
-               Add New
-            </Button>
-         </Stack>
-         {Add()}
+
          {AddVp()}
-         {AddGS()}
-         {AddIS()}
+         {Edit()}
+
       </div>
    );
 };
